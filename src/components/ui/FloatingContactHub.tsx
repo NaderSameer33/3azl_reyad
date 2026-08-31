@@ -135,7 +135,7 @@ export default function FloatingContactHub() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+            className="max-md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
@@ -143,9 +143,10 @@ export default function FloatingContactHub() {
       </AnimatePresence>
 
       {/* ── Hub container ──────────────────────────────────────────── */}
+      {/* Hidden on mobile — MobileBottomBar handles those screens */}
       <div
         ref={hubRef}
-        className="fixed bottom-6 left-5 z-50 flex flex-col-reverse items-end gap-3"
+        className="max-md:hidden fixed bottom-6 left-5 z-50 flex flex-col-reverse items-end gap-3"
         /* RTL: left = end side */
       >
         {/* Channel cards — revealed when open */}
