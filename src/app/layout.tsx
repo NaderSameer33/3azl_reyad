@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   // Override title template for child pages
   title: {
     default:
-      "شركة المعمورة للمقاولات العامة للعوازل | كشف تسربات المياه وعزل الأسطح بالرياض",
-    template: "%s | المعمورة للعوازل - كشف تسربات وعزل أسطح الرياض",
+      "شركة عزل أسطح وفوم وكشف تسربات بالرياض | شركة المعمورة معتمدة",
+    template: "%s | شركة المعمورة عوازل بالرياض",
   },
   // Verification tags (replace values with real console tokens)
   verification: {
