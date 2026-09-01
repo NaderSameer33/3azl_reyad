@@ -341,3 +341,23 @@ span[class*="rounded-lg"]:hover {
   border-color: rgba(56, 189, 248, 0.35);
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.18), 0 8px 24px rgba(0, 0, 0, 0.4);
 }
+
+/* ─── Media Protection & Anti-Theft CSS Rules ─────────────────────────────── */
+img, video {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+@media print {
+  body {
+    display: none !important;
+  }
+}

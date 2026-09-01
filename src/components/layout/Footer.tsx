@@ -15,12 +15,12 @@ import {
 } from "lucide-react";
 
 const serviceLinks = [
-  { label: "كشف تسربات المياه بدون تكسير", href: "/#services" },
-  { label: "عزل فوم بولي يوريثان", href: "/#services" },
-  { label: "العزل المائي والحراري للأسطح", href: "/#services" },
-  { label: "عزل وترميم خزانات المياه بالإيبوكسي", href: "/#services" },
-  { label: "عزل المسابح والحمامات قبل البلاط", href: "/#services" },
-  { label: "تقارير معتمدة لشركة المياه الوطنية", href: "/#services" },
+  { label: "عزل حمامات ومطابخ قبل وبعد البلاط", href: "/services/pools-bathrooms" },
+  { label: "عزل رول ممبرين بيتوميني 4 ملم", href: "/services/waterproofing-thermal" },
+  { label: "عزل بولي يوريا هيدروليكي عالي المقاومة", href: "/services/waterproofing-thermal" },
+  { label: "عزل فوم بولي يوريثان حراري ومائي", href: "/services/foam-insulation" },
+  { label: "كشف تسربات المياه بدون تكسير", href: "/services/leak-detection" },
+  { label: "عزل وترميم خزانات المياه بالإيبوكسي", href: "/services/tank-insulation" },
 ];
 
 const quickLinks = [

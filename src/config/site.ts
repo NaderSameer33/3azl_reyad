@@ -121,43 +121,51 @@ export const siteConfig = {
   // ─── Services ─────────────────────────────────────────────────────────────
   services: [
     {
-      id: "leak-detection",
-      ar: "كشف تسربات المياه",
-      en: "Water Leak Detection",
+      id: "bathroom-kitchens",
+      ar: "عزل حمامات ومطابخ",
+      en: "Bathroom & Kitchen Waterproofing",
       description: {
-        ar: "كشف دقيق بدون تكسير باستخدام أحدث الأجهزة الإلكترونية",
+        ar: "عزل مائي هندسي للحمامات والمطابخ قبل وبعد البلاط لمنع التسريب نهائياً",
+      },
+    },
+    {
+      id: "membrane-roll",
+      ar: "عزل رول ممبرين",
+      en: "Bitumen Roll Membrane Insulation",
+      description: {
+        ar: "عزل رولات بيتومينية مسلحة 4 ملم للأسطح الخرسانية والمباني التجارية",
+      },
+    },
+    {
+      id: "polyurea-insulation",
+      ar: "عزل بولي يوريا",
+      en: "Polyurea Spray Waterproofing",
+      description: {
+        ar: "رش بولي يوريا هيدروليكي سريع الجفاف عالي المرونة والمقاومة للإجهادات",
       },
     },
     {
       id: "foam-insulation",
-      ar: "عزل الأسطح بالفوم",
+      ar: "عزل أسطح بالفوم",
       en: "Foam Roof Insulation",
       description: {
-        ar: "عزل حراري ومائي متكامل باستخدام البولي يوريثان عالي الكثافة",
+        ar: "عزل حراري ومائي متكامل بالبولي يوريثان معتمد من شركة الكهرباء",
       },
     },
     {
-      id: "waterproofing",
-      ar: "العزل المائي للأسطح",
-      en: "Roof Waterproofing",
+      id: "leak-detection",
+      ar: "كشف تسربات المياه",
+      en: "Water Leak Detection",
       description: {
-        ar: "حماية السطح من تسرب مياه الأمطار والرطوبة بضمان 10 سنوات",
-      },
-    },
-    {
-      id: "bathroom-leaks",
-      ar: "كشف تسربات الحمامات",
-      en: "Bathroom Leak Detection",
-      description: {
-        ar: "فحص وإصلاح تسربات الحمامات والمطابخ بدون هدم",
+        ar: "كشف دقيق بدون تكسير بأحدث الأجهزة الصوتية والحرارية الألمانية",
       },
     },
     {
       id: "tank-leaks",
-      ar: "كشف تسربات الخزانات",
-      en: "Water Tank Leak Detection",
+      ar: "عزل وترميم الخزانات",
+      en: "Water Tank Insulation & Repair",
       description: {
-        ar: "صيانة وعزل خزانات المياه العلوية والأرضية",
+        ar: "صيانة وعزل خزانات المياه بالإيبوكسي الأزرق الغذائي المعتمد",
       },
     },
   ],

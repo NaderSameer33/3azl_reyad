@@ -8,6 +8,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContactHub from "@/components/ui/FloatingContactHub";
 
+import MediaProtectionProvider from "@/components/ui/MediaProtectionProvider";
+
 // ─── Font ──────────────────────────────────────────────────────────────────────
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -69,24 +71,26 @@ export default function RootLayout({
         <JsonLd schema={localBusinessSchema} />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {/* Skip to main content (accessibility) */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-[9999] focus:rounded-lg focus:bg-blue-brand-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
-        >
-          انتقل إلى المحتوى الرئيسي
-        </a>
+        <MediaProtectionProvider>
+          {/* Skip to main content (accessibility) */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-[9999] focus:rounded-lg focus:bg-blue-brand-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
+          >
+            انتقل إلى المحتوى الرئيسي
+          </a>
 
-        <Header />
+          <Header />
 
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
 
-        <Footer />
+          <Footer />
 
-        {/* Floating vertical contact dock (all devices) */}
-        <FloatingContactHub />
+          {/* Floating vertical contact dock (all devices) */}
+          <FloatingContactHub />
+        </MediaProtectionProvider>
       </body>
     </html>
   );

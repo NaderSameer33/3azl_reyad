@@ -15,6 +15,8 @@ import {
 import { Project } from "@/types/project";
 import ProjectVisual from "./ProjectVisualFallback";
 
+import ProtectedImage from "@/components/ui/ProtectedImage";
+
 interface ProjectCardProps {
   project: Project;
 }
@@ -27,12 +29,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         href={`/projects/${project.slug}`}
         className="relative block h-56 w-full overflow-hidden bg-slate-950"
       >
-        <ProjectVisual
-          categoryId={project.category.id}
-          title={project.title}
-          stage="featured"
-          className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-        />
+        {project.featuredImage ? (
+          <ProtectedImage
+            src={project.featuredImage}
+            alt={project.title}
+            fill
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            showWatermark={true}
+          />
+        ) : (
+          <ProjectVisual
+            categoryId={project.category.id}
+            title={project.title}
+            stage="featured"
+            className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
 
         {/* Riyadh Neighborhood Badge (Top Right) */}
         <div className="absolute top-3 right-3 z-20">

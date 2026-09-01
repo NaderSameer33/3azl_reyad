@@ -6,6 +6,8 @@ import { GalleryItem, ProjectCategoryId } from "@/types/project";
 import ProjectVisual from "./ProjectVisualFallback";
 import { ImageIcon } from "lucide-react";
 
+import ProtectedImage from "@/components/ui/ProtectedImage";
+
 interface ProjectGalleryProps {
   gallery: GalleryItem[];
   categoryId: ProjectCategoryId;
@@ -94,12 +96,22 @@ export default function ProjectGallery({
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-lg"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <ProjectVisual
-                  categoryId={categoryId}
-                  title={item.caption}
-                  stage={item.stage}
-                  className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-                />
+                {item.url ? (
+                  <ProtectedImage
+                    src={item.url}
+                    alt={item.caption}
+                    fill
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    showWatermark={true}
+                  />
+                ) : (
+                  <ProjectVisual
+                    categoryId={categoryId}
+                    title={item.caption}
+                    stage={item.stage}
+                    className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
               </div>
               <div className="p-4 bg-slate-900/90 border-t border-white/5">
                 <p className="text-xs font-semibold leading-relaxed text-white/90 line-clamp-2">
