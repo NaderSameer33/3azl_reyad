@@ -1,6 +1,6 @@
 /**
  * project.ts — Comprehensive TypeScript interfaces for Portfolio & Case Studies
- * شركة درع الخليج لكشف التسربات وعزل الأسطح بالرياض
+ * شركة المعمورة للمقاولات العامة للعوازل بالرياض
  */
 
 export type ProjectCategoryId =

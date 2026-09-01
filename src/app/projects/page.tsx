@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "معرض الأعمال والمشاريع المنفذة بالرياض | درع الخليج لعزل الأسطح وكشف التسربات",
+  title: "معرض الأعمال والمشاريع المنفذة بالرياض | شركة المعمورة للمقاولات العامة للعوازل",
   description:
     "استعرض أكثر من 1,500 مشروع عزل فوم بولي يوريثان، عزل مائي وحراري، كشف تسربات المياه بدون تكسير، وعزل خزانات منفذة في كافة أحياء الرياض مع ضمان معتمد حتى 15 سنة.",
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/projects`,
   },
   openGraph: {
-    title: "مشاريع وقصص نجاح عزل الأسطح وكشف التسربات بالرياض | درع الخليج",
+    title: "مشاريع وقصص نجاح عزل الأسطح وكشف التسربات بالرياض | شركة المعمورة",
     description: "توثيق ميداني شامل لمشاريع الفلل والعمائر في أحياء الرياض بضمان معتمد.",
     url: `${siteConfig.url}/projects`,
     siteName: siteConfig.name.ar,
@@ -108,7 +108,7 @@ export default function ProjectsPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "معرض مشاريع عزل الأسطح وكشف التسربات بالرياض",
-    description: "قائمة بالمشاريع المنفذة من شركة درع الخليج في مدينة الرياض مع دراسات الجدوى والمواصفات الفنية المعتمدة.",
+    description: "قائمة بالمشاريع المنفذة من شركة المعمورة في مدينة الرياض مع دراسات الجدوى والمواصفات الفنية المعتمدة.",
     itemListElement: projects.map((p, idx) => ({
       "@type": "ListItem",
       position: idx + 1,

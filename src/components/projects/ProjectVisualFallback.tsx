@@ -158,8 +158,8 @@ export default function ProjectVisual({
 
       {/* Bottom Technical Stamp */}
       <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] font-medium text-white/50">
-        <span>شركة درع الخليج · الرياض</span>
-        <span className="font-mono text-white/60">GULF SHIELD SA</span>
+        <span>شركة المعمورة · الرياض</span>
+        <span className="font-mono text-white/60">AL-MAMOURA SA</span>
       </div>
     </div>
   );

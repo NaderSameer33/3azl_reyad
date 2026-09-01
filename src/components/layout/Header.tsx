@@ -183,14 +183,14 @@ export default function Header() {
             <Link
               href="/"
               className="flex items-center gap-3 group shrink-0"
-              aria-label="درع الخليج — الصفحة الرئيسية"
+              aria-label={`${siteConfig.name.short.ar} — الصفحة الرئيسية`}
             >
               <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform duration-200">
                 <Droplets className="h-5 w-5 text-white" aria-hidden="true" />
               </div>
               <div className="flex flex-col text-right">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base font-black text-white tracking-tight">درع الخليج</span>
+                  <span className="text-base font-black text-white tracking-tight">{siteConfig.name.short.ar}</span>
                   <span className="rounded-full bg-sky-500/20 border border-sky-400/30 px-1.5 py-0.2 text-[9px] font-bold text-sky-300 hidden sm:inline-block">
                     معتمد
                   </span>

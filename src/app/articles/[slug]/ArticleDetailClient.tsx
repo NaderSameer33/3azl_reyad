@@ -202,14 +202,12 @@ export default function ArticleDetailClient({
                 هل تحتاج مهندساً مختصاً لفحص سطح منزلك أو خزانك بالرياض؟
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-                فريقنا الهندسي في شركة درع الخليج مستعد لمعاينة الموقع وتقديم التقرير الفني الشامل وعقد الضمان الموثق.
+                فريقنا الهندسي في شركة المعمورة مستعد لمعاينة الموقع وتقديم التقرير الفني الشامل وعقد الضمان الموثق.
               </p>
 
               <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href={`https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
-                    `السلام عليكم، قرأت مقال (${article.title}) وأود حجز موعد فحص ومعاينة في الرياض.`
-                  )}`}
+                  href={siteConfig.whatsapp.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-6 py-3.5 text-xs sm:text-sm font-black text-white shadow-xl shadow-emerald-600/30 transition-all hover:scale-105"

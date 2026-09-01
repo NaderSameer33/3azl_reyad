@@ -47,7 +47,7 @@ export async function generateMetadata({
       canonical: `${siteConfig.url}/categories/${category.slug}`,
     },
     openGraph: {
-      title: `${category.titleAr} بالرياض | درع الخليج`,
+      title: `${category.titleAr} بالرياض | شركة المعمورة`,
       description: category.shortSummary,
       url: `${siteConfig.url}/categories/${category.slug}`,
       siteName: siteConfig.name.ar,

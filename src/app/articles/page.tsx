@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/articles`,
   },
   openGraph: {
-    title: "مكتبة المقالات والأدلة الفنية | درع الخليج بالرياض",
+    title: "مكتبة المقالات والأدلة الفنية | شركة المعمورة بالرياض",
     description:
       "أكبر مكتبة معرفية متخصصة في هندسة العزل الحراري والمائي وكشف التسربات في المملكة.",
     url: `${siteConfig.url}/articles`,

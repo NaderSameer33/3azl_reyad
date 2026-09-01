@@ -23,9 +23,7 @@ export default function FloatingContactHub() {
     }
   };
 
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
-    "السلام عليكم، أود حجز موعد كشف تسربات وعزل أسطح بالرياض"
-  )}`;
+  const whatsappUrl = siteConfig.whatsapp.url;
 
   const socialLinks = [
     {
@@ -87,7 +85,7 @@ export default function FloatingContactHub() {
     {
       id: "twitter",
       label: "حسابنا على منصة إكس (تويتر)",
-      href: "https://twitter.com",
+      href: siteConfig.social.x.url,
       target: "_blank",
       color: "text-white",
       activeGlow: "bg-white/25 border-white/60 shadow-[0_0_20px_rgba(255,255,255,0.5)]",
@@ -95,20 +93,6 @@ export default function FloatingContactHub() {
       customIcon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      ),
-    },
-    {
-      id: "snapchat",
-      label: "تغطيات حية على سناب شات",
-      href: siteConfig.social.snapchat.url,
-      target: "_blank",
-      color: "text-[#FFFC00]",
-      activeGlow: "bg-[#FFFC00]/25 border-[#FFFC00]/60 shadow-[0_0_20px_rgba(255,252,0,0.6)]",
-      isPrimaryGlow: false,
-      customIcon: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-          <path d="M12.065.001C9.335-.023 5.373 1.033 3.61 5.09c-.62 1.422-.478 3.865-.478 5.31 0 .008-.226.085-.563.085-.388 0-.83-.118-1.248-.41a.755.755 0 0 0-.433-.124c-.422 0-.888.3-.888.756 0 .662 1.058 1.184 1.967 1.39.072.017.143.032.213.047-.085.292-.222.805-.222 1.198 0 .06.004.12.013.178.078.506.46.89.986.89.387 0 .742-.135 1.065-.25.466-.165.937-.272 1.42-.272.54 0 .962.162 1.54.56 1.2.822 2.19 1.24 3.41 1.24.967 0 1.805-.274 2.704-.78.572.12 1.143.252 1.657.38.374.093.714.175.98.175.353 0 .616-.09.78-.277.16-.184.194-.437.09-.718l-.036-.097.036-.005c.87-.138 1.95-.563 1.95-1.385 0-.428-.38-.75-.89-.75a.73.73 0 0 0-.424.13c-.39.27-.85.384-1.235.384-.335 0-.558-.075-.558-.082v-.003c0-1.446.143-3.902-.48-5.327C18.686 1.022 14.75-.022 12.065 0z" />
         </svg>
       ),
     },

@@ -160,7 +160,7 @@ export default function HeroSection() {
               variants={itemVariants}
               className="text-xs sm:text-sm md:text-[15px] text-slate-300 leading-relaxed mb-4 max-w-2xl"
             >
-              شركة <strong className="text-white font-black">درع الخليج</strong> تقدم منظومة متكاملة لحماية منزلك تشمل:{" "}
+              شركة <strong className="text-white font-black">{siteConfig.name.short.ar}</strong> تقدم منظومة متكاملة لحماية منزلك تشمل:{" "}
               <span className="text-sky-300 font-semibold">كشف التسربات بالأجهزة الألمانية بدون تكسير</span>،{" "}
               <span className="text-teal-300 font-semibold">عزل فوم بولي يوريثان حراري ومائي</span> معتمد من شركة الكهرباء لخفض الفاتورة 40%، و{" "}
               <span className="text-blue-300 font-semibold">عزل الخزانات والمسابح بالإيبوكسي الصحي</span> مع ضمان رسمي يصل إلى{" "}

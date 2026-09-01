@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   // Override title template for child pages
   title: {
     default:
-      "شركة درع الخليج | كشف تسربات المياه وعزل الأسطح بالرياض",
-    template: "%s | درع الخليج - كشف تسربات وعزل أسطح الرياض",
+      "شركة المعمورة للمقاولات العامة للعوازل | كشف تسربات المياه وعزل الأسطح بالرياض",
+    template: "%s | المعمورة للعوازل - كشف تسربات وعزل أسطح الرياض",
   },
   // Verification tags (replace values with real console tokens)
   verification: {
     google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN",
   },
   // App / PWA
-  applicationName: "درع الخليج",
+  applicationName: "المعمورة للعوازل",
   category: "construction",
   referrer: "origin-when-cross-origin",
   formatDetection: {

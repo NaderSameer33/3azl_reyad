@@ -223,13 +223,11 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                   هل تحتاج استشارة فنية أو فحص مجاني لسطح منزلك في الرياض؟
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-                  فريقنا الهندسي في شركة درع الخليج مستعد لمعاينة الموقع وتقديم التقرير الفني الشامل بضمان معتمد.
+                  فريقنا الهندسي في شركة المعمورة مستعد لمعاينة الموقع وتقديم التقرير الفني الشامل بضمان معتمد.
                 </p>
                 <div className="flex flex-wrap items-center gap-3">
                   <a
-                    href={`https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
-                      `السلام عليكم، قرأت مقال (${article.title}) وأود حجز موعد معاينة في الرياض.`
-                    )}`}
+                    href={siteConfig.whatsapp.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3 text-xs font-black text-white shadow-lg shadow-emerald-600/30 hover:scale-105 transition-transform"

@@ -13,55 +13,62 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   // ─── Brand Identity ───────────────────────────────────────────────────────
   name: {
-    ar: "شركة درع الخليج لكشف التسربات وعزل الأسطح",
-    en: "Gulf Shield – Water Leak Detection & Roof Insulation Riyadh",
+    ar: "شركة المعمورة للمقاولات العامة للعوازل",
+    en: "Al-Mamoura Insulation & General Contracting",
     short: {
-      ar: "درع الخليج",
-      en: "Gulf Shield",
+      ar: "شركة المعمورة",
+      en: "Al-Mamoura",
     },
   },
 
   // ─── Contact ──────────────────────────────────────────────────────────────
   phone: {
-    primary: "+966501234567",
-    secondary: "+966509876543",
+    primary: "+966539441259",
+    secondary: "+966539441259",
     display: {
-      primary: "0501234567",
-      secondary: "0509876543",
+      primary: "0539441259",
+      secondary: "0539441259",
     },
   },
-  email: "info@gulfshield-sa.com",
+  email: "info@almamoura-sa.com",
 
   // ─── WhatsApp ─────────────────────────────────────────────────────────────
   whatsapp: {
-    number: "966501234567", // without leading +
+    number: "966539441259", // without leading +
     get url() {
-      const text = encodeURIComponent(
-        "السلام عليكم، أريد الاستفسار عن خدمات كشف التسربات وعزل الأسطح بالرياض"
-      );
-      return `https://wa.me/${this.number}?text=${text}`;
+      return "https://api.whatsapp.com/send/?phone=966539441259&text&type=phone_number&app_absent=0";
     },
   },
 
   // ─── Social Media ─────────────────────────────────────────────────────────
   social: {
-    snapchat: {
-      username: "gulfshield_sa",
-      url: "https://www.snapchat.com/add/gulfshield_sa",
-      display: "@gulfshield_sa",
+    x: {
+      username: "AbdaAlshrq41172",
+      url: "https://x.com/AbdaAlshrq41172",
+      display: "@AbdaAlshrq41172",
+    },
+    twitter: {
+      username: "AbdaAlshrq41172",
+      url: "https://x.com/AbdaAlshrq41172",
+      display: "@AbdaAlshrq41172",
     },
     tiktok: {
-      username: "@gulfshield.sa",
-      url: "https://www.tiktok.com/@gulfshield.sa",
-      display: "@gulfshield.sa",
+      username: "mmhhfdt",
+      url: "https://www.tiktok.com/@mmhhfdt?_r=1",
+      display: "@mmhhfdt",
+    },
+    snapchat: {
+      username: "almamoura_sa",
+      url: "https://www.snapchat.com",
+      display: "@almamoura_sa",
     },
   },
 
   // ─── SEO & Metadata ───────────────────────────────────────────────────────
-  url: "https://www.gulfshield-sa.com",
+  url: "https://www.almamoura-sa.com",
   description: {
-    ar: "شركة متخصصة في كشف تسربات المياه بالرياض وعزل الأسطح الفوم والمائي. نخدم جميع أحياء الرياض بأحدث الأجهزة الألكترونية مع ضمان مكتوب.",
-    en: "Specialist company in water leak detection and roof insulation (foam & waterproofing) in Riyadh, Saudi Arabia. Serving all Riyadh districts with electronic detection equipment and written warranty.",
+    ar: "شركة المعمورة للمقاولات العامة للعوازل - شركة متخصصة في كشف تسربات المياه بالرياض وعزل الأسطح الفوم والمائي. نخدم جميع أحياء الرياض بأحدث الأجهزة الإلكترونية مع ضمان مكتوب.",
+    en: "Al-Mamoura Insulation & General Contracting - Specialist company in water leak detection and roof insulation (foam & waterproofing) in Riyadh, Saudi Arabia. Serving all Riyadh districts with electronic detection equipment and written warranty.",
   },
   keywords: [
     "كشف تسربات المياه بالرياض",
@@ -157,7 +164,7 @@ export const siteConfig = {
 
   // ─── Business Info for Structured Data ───────────────────────────────────
   business: {
-    legalName: "شركة درع الخليج لكشف التسربات وعزل الأسطح",
+    legalName: "شركة المعمورة للمقاولات العامة للعوازل",
     priceRange: "SAR",
     currenciesAccepted: "SAR",
     paymentAccepted: "Cash, Bank Transfer",
@@ -175,7 +182,7 @@ export const siteConfig = {
       postalCode: "11564",
       addressCountry: "SA",
     },
-    email: "info@gulfshield-sa.com",
+    email: "info@almamoura-sa.com",
     logo: "/images/logo.png",
   },
 } as const;

@@ -50,18 +50,18 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "المشروع غير موجود | درع الخليج بالرياض",
+      title: "المشروع غير موجود | شركة المعمورة بالرياض",
     };
   }
 
   return {
-    title: `${project.title} | درع الخليج بالرياض`,
-    description: `${project.shortDescription} — دراسة حالة فنية موثقة من شركة درع الخليج بالرياض مع ضمان معتمد.`,
+    title: `${project.title} | شركة المعمورة بالرياض`,
+    description: `${project.shortDescription} — دراسة حالة فنية موثقة من شركة المعمورة بالرياض مع ضمان معتمد.`,
     keywords: [
       ...project.seoKeywords,
       `عزل أسطح ${project.district}`,
       `كشف تسربات ${project.district}`,
-      "شركة درع الخليج بالرياض",
+      "شركة المعمورة بالرياض",
     ],
     alternates: {
       canonical: `${siteConfig.url}/projects/${project.slug}`,
