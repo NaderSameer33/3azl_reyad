@@ -65,7 +65,7 @@ export const siteConfig = {
   },
 
   // ─── SEO & Metadata ───────────────────────────────────────────────────────
-  url: "https://www.almamoura-sa.com",
+  url: "https://www.elmamoura.com",
   description: {
     ar: "شركة المعمورة للمقاولات العامة للعوازل - شركة متخصصة في كشف تسربات المياه بالرياض وعزل الأسطح الفوم والمائي. نخدم جميع أحياء الرياض بأحدث الأجهزة الإلكترونية مع ضمان مكتوب.",
     en: "Al-Mamoura Insulation & General Contracting - Specialist company in water leak detection and roof insulation (foam & waterproofing) in Riyadh, Saudi Arabia. Serving all Riyadh districts with electronic detection equipment and written warranty.",
