@@ -60,13 +60,6 @@ export default function RootLayout({
       className={`${cairo.variable} h-full scroll-smooth antialiased`}
     >
       <head>
-        {/* Preconnect to Google Fonts for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         {/* JSON-LD Structured Data */}
         <JsonLd schema={localBusinessSchema} />
       </head>

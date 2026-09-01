@@ -24,6 +24,7 @@ export default function ProtectedImage({
   className = "",
   containerClassName = "w-full h-full",
   showWatermark = true,
+  priority = false,
 }: ProtectedImageProps) {
   const [error, setError] = useState(false);
 
@@ -37,6 +38,8 @@ export default function ProtectedImage({
       <img
         src={error || !src ? "/images/og-image.jpg" : src}
         alt={alt}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
         onError={() => setError(true)}
         onContextMenu={(e) => e.preventDefault()}
         onDragStart={(e) => e.preventDefault()}

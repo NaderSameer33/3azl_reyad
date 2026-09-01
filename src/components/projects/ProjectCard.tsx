@@ -117,6 +117,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="mt-auto flex items-center justify-between pt-2">
           <Link
             href={`/projects/${project.slug}`}
+            aria-label={`عرض تفاصيل مشروع ${project.title}`}
             className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600/20 border border-blue-500/30 px-4 py-2.5 text-xs font-extrabold text-blue-200 transition-all duration-200 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/30"
           >
             <FileText className="h-4 w-4" />

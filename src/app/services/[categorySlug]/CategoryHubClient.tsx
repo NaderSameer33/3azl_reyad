@@ -439,6 +439,7 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
                   max="1000"
                   step="25"
                   value={estArea}
+                  aria-label="تحديد المساحة بالمتر المربع"
                   onChange={(e) => setEstArea(Number(e.target.value))}
                   className="w-full accent-sky-400 cursor-pointer h-2.5 rounded-lg bg-slate-950"
                 />

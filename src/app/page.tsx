@@ -466,8 +466,10 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-white mb-1.5">نوع الخدمة</label>
+                        <label htmlFor="service-select" className="block text-xs font-bold text-white mb-1.5">نوع الخدمة</label>
                         <select
+                          id="service-select"
+                          aria-label="اختر نوع الخدمة"
                           required
                           defaultValue=""
                           className="w-full rounded-xl border border-white/15 bg-slate-950 px-4 py-3 text-xs text-white focus:border-blue-400 focus:outline-none"
