@@ -5,26 +5,29 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ServiceCategory } from "@/types/service";
 import { siteConfig } from "@/config/site";
+import { SERVICE_DETAILS_DATA } from "@/data/serviceDetailsData";
 import LiquidCard from "@/components/ui/LiquidCard";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import ProtectedImage from "@/components/ui/ProtectedImage";
+import ProtectedVideo from "@/components/ui/ProtectedVideo";
 import {
   ChevronLeft,
   ShieldCheck,
-  Award,
   Phone,
   MessageCircle,
-  CalendarCheck,
-  Layers,
-  Sparkles,
-  FileText,
   Building2,
+  FileText,
   Clock,
   ArrowLeft,
   CheckCircle2,
   Maximize2,
   Calculator,
-  Flame,
-  BadgeCheck,
+  AlertTriangle,
+  Wrench,
+  HelpCircle,
+  Layers,
+  Sparkles,
+  Activity,
 } from "lucide-react";
 
 interface CategoryHubClientProps {
@@ -34,13 +37,17 @@ interface CategoryHubClientProps {
 export default function CategoryHubClient({ category }: CategoryHubClientProps) {
   const [activeTab, setActiveTab] = useState<"projects" | "articles">("projects");
   const [estArea, setEstArea] = useState<number>(300);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const details =
+    SERVICE_DETAILS_DATA[category.id] || SERVICE_DETAILS_DATA["foam-insulation"];
 
   const estimatedCost = category.basePricePerMeter
     ? estArea * category.basePricePerMeter
     : category.flatPrice || 199;
 
   return (
-    <div className="bg-slate-950 min-h-screen text-white text-right">
+    <div className="bg-slate-950 min-h-screen text-white text-right select-none">
       {/* ── 1. Breadcrumb Bar ─────────────────────────────────────────── */}
       <div className="border-b border-white/10 bg-slate-900/60 py-3.5 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -62,8 +69,7 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
       </div>
 
       {/* ── 2. Category Hero Section ──────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b border-white/10">
-        {/* Background Ambient Blooms */}
+      <section className="relative overflow-hidden pt-12 pb-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-blue-600/15 blur-[130px]" />
           <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-teal-500/10 blur-[130px]" />
@@ -71,26 +77,26 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
 
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left/Main Column (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/15 border border-sky-400/30 px-3.5 py-1 text-xs font-bold text-sky-300 mb-4">
+            {/* Main Column */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/15 border border-sky-400/30 px-3.5 py-1 text-xs font-bold text-sky-300">
                 <ShieldCheck className="h-4 w-4" />
                 <span>{category.badge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-white mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-white">
                 {category.name} <br />
                 <span className="bg-gradient-to-r from-blue-300 via-sky-200 to-teal-300 bg-clip-text text-transparent">
                   في مدينة الرياض
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
                 {category.longDescription}
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href={`https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
                     `السلام عليكم، أرغب بحجز معاينة واستفسار عن خدمة ${category.name} في الرياض.`
@@ -113,77 +119,193 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
               </div>
             </div>
 
-            {/* Right/Specs Column (5 cols) */}
+            {/* Hero Protected Image Showcase Column */}
             <div className="lg:col-span-5">
-              <LiquidCard glowColor="sky" className="p-6">
-                <span className="text-xs font-black text-sky-400 block mb-3 uppercase tracking-wider">
-                  المواصفات والاعتمادات الفنية للقسم
-                </span>
-
-                <div className="space-y-3 text-xs">
-                  <div className="flex justify-between items-center py-2 border-b border-white/5">
-                    <span className="text-slate-400">المادة الأساسية:</span>
-                    <strong className="text-white text-right max-w-[200px] truncate">
-                      {category.technicalSpecs.material}
-                    </strong>
-                  </div>
-
-                  <div className="flex justify-between items-center py-2 border-b border-white/5">
-                    <span className="text-slate-400">السماكة المطبقة:</span>
-                    <strong className="text-sky-300 font-bold">
-                      {category.technicalSpecs.thickness}
-                    </strong>
-                  </div>
-
-                  <div className="flex justify-between items-center py-2 border-b border-white/5">
-                    <span className="text-slate-400">الكثافة / القوة:</span>
-                    <strong className="text-white font-mono">
-                      {category.technicalSpecs.density}
-                    </strong>
-                  </div>
-
-                  <div className="flex justify-between items-center py-2 border-b border-white/5">
-                    <span className="text-slate-400">مدة الضمان المعتمد:</span>
-                    <strong className="text-teal-300 font-bold">
-                      {category.technicalSpecs.warrantyYears} سنوات ضمان شامل
-                    </strong>
-                  </div>
-
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-slate-400">الجهة المعتمدة:</span>
-                    <strong className="text-white font-bold">
-                      {category.technicalSpecs.approvalBody}
-                    </strong>
-                  </div>
-                </div>
-              </LiquidCard>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/15 shadow-2xl">
+                <ProtectedImage
+                  src={category.heroImage}
+                  alt={category.name}
+                  fill
+                  className="h-full w-full object-cover"
+                  showWatermark={true}
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 3. Tabbed Content Section (Projects & Articles) ──────────── */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+      {/* ── 3. Problems & Technical Risks Section (وصف المشكلة والتحديات) ── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-slate-900/40">
         <div className="mx-auto max-w-7xl">
-          {/* Tabs Switcher Header */}
+          <div className="rounded-3xl border border-red-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-red-500/20 border border-red-500/40 px-3 py-1 text-xs font-bold text-red-300">
+                <AlertTriangle className="h-3.5 w-3.5 text-red-400" />
+                المشكلات والتحديات الإنشائية
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+              {details.problems.title}
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 max-w-3xl">
+              {details.problems.description}
+            </p>
+
+            {/* Risks Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {details.problems.risks.map((risk, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 text-xs leading-relaxed text-slate-200 flex items-start gap-3"
+                >
+                  <span className="h-2 w-2 rounded-full bg-red-400 shrink-0 mt-2" />
+                  <span>{risk}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. Applied Engineering Solution System (منظومة الحلول والخطوات المتبعة) ── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 text-right">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-500/20 border border-teal-500/40 px-3 py-1 text-xs font-bold text-teal-300 mb-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-teal-400" />
+              المنظومة الهندسية المتبعة
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">
+              {details.solutionSystem.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2 max-w-3xl">
+              {details.solutionSystem.description}
+            </p>
+          </div>
+
+          {/* Applied Materials Badges */}
+          <div className="mb-8 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold text-slate-400 ml-2">المواد والمواصفات المستعملة:</span>
+            {details.solutionSystem.appliedMaterials.map((mat, i) => (
+              <span
+                key={i}
+                className="rounded-xl border border-white/10 bg-slate-900 px-3.5 py-1.5 text-xs font-bold text-sky-300 backdrop-blur-md"
+              >
+                ✓ {mat}
+              </span>
+            ))}
+          </div>
+
+          {/* Step-by-Step Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {details.solutionSystem.steps.map((st) => (
+              <LiquidCard key={st.stepNumber} glowColor="sky" className="p-6 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-600 text-xs font-black text-white shadow-md">
+                      {st.stepNumber}
+                    </span>
+                    <span className="text-[10px] font-bold text-teal-300 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">
+                      مرحلة معتمدة
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2">{st.title}</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">{st.desc}</p>
+                </div>
+              </LiquidCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Field Media Showcase (معرض الصور الميدانية الحقيقية) ── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-slate-900/40">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex items-center justify-between border-b border-white/10 pb-4">
+            <div>
+              <span className="text-xs font-bold text-blue-brand-400 block mb-1">
+                معرض المعاينة الميدانية المصورة
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white">
+                صور حقيقية لمراحل تنفيذ {category.name}
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {details.galleryImages.map((imgItem, idx) => (
+              <div key={idx} className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-xl">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <ProtectedImage
+                    src={imgItem.url}
+                    alt={imgItem.caption}
+                    fill
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    showWatermark={true}
+                  />
+                </div>
+                <div className="p-3.5 bg-slate-900/90 border-t border-white/5">
+                  <p className="text-xs font-semibold leading-relaxed text-slate-200 line-clamp-2">
+                    {imgItem.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Protected Video Player Section (الفيديو التوثيقي المباشر) ── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-6 text-center">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 border border-sky-400/30 px-3.5 py-1 text-xs font-bold text-sky-300 mb-2">
+              <Activity className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+              فيديو التغطية الميدانية المباشرة
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">
+              {details.video.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto mt-2">
+              {details.video.description}
+            </p>
+          </div>
+
+          <ProtectedVideo
+            src={details.video.src}
+            poster={details.video.poster}
+            title={details.video.title}
+            className="w-full aspect-video shadow-2xl"
+            autoPlay={false}
+            controls={true}
+            showWatermark={true}
+          />
+        </div>
+      </section>
+
+      {/* ── 7. Tabbed Content (Projects & Articles) ──────────────────── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
+        <div className="mx-auto max-w-7xl">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 border-b border-white/10 pb-5">
             <div>
               <span className="text-xs font-bold text-sky-400 block mb-1">
-                المحتوى التوثيقي والمعرفي
+                المشاريع المنفذة والمقالات
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-white">
-                استعرض مشاريعنا وأدلتنا الفنية في {category.name}
+                نماذج من أعمالنا ومقالات الـ SEO الفنية
               </h2>
             </div>
 
-            {/* Tab buttons */}
             <div className="flex items-center rounded-2xl bg-slate-900 p-1.5 border border-white/10">
               <button
                 type="button"
                 onClick={() => setActiveTab("projects")}
                 className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-bold transition-all ${
                   activeTab === "projects"
-                    ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-600/30"
+                    ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -196,17 +318,16 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
                 onClick={() => setActiveTab("articles")}
                 className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-bold transition-all ${
                   activeTab === "articles"
-                    ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-600/30"
+                    ? "bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
                 <FileText className="h-4 w-4" />
-                <span>المقالات والشروحات ({category.articles.length})</span>
+                <span>المقالات الفنية ({category.articles.length})</span>
               </button>
             </div>
           </div>
 
-          {/* Tab 1: Projects Grid */}
           <AnimatePresence mode="wait">
             {activeTab === "projects" && (
               <motion.div
@@ -214,7 +335,6 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 15 }}
-                transition={{ duration: 0.3 }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
                 {category.projects.map((proj) => (
@@ -236,25 +356,13 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
                       <p className="text-xs text-slate-300 leading-relaxed mb-4">
                         {proj.summary}
                       </p>
-
-                      {/* Specs Row */}
-                      <div className="grid grid-cols-2 gap-2 rounded-xl bg-slate-950/80 border border-white/5 p-3 mb-4 text-[11px] text-slate-300">
-                        <div className="flex items-center gap-1.5">
-                          <Maximize2 className="h-3.5 w-3.5 text-sky-400" />
-                          <span>المساحة: <strong>{proj.area}</strong></span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <Clock className="h-3.5 w-3.5 text-teal-400" />
-                          <span>المدة: <strong>{proj.duration}</strong></span>
-                        </div>
-                      </div>
                     </div>
 
                     <Link
                       href={`/services/${category.slug}/projects/${proj.slug}`}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600/20 border border-blue-500/30 py-2.5 text-xs font-black text-sky-200 hover:bg-blue-600 hover:text-white transition-all"
                     >
-                      <span>عرض تقرير المشروع وصور قبل وبعد</span>
+                      <span>عرض تقرير المشروع والتفاصيل الكاملة</span>
                       <ArrowLeft className="h-3.5 w-3.5" />
                     </Link>
                   </LiquidCard>
@@ -262,14 +370,12 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
               </motion.div>
             )}
 
-            {/* Tab 2: Articles Grid */}
             {activeTab === "articles" && (
               <motion.div
                 key="articles-tab"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 15 }}
-                transition={{ duration: 0.3 }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
                 {category.articles.map((art) => (
@@ -294,9 +400,9 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
 
                     <Link
                       href={`/services/${category.slug}/articles/${art.slug}`}
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white/5 border border-white/10 py-2.5 text-xs font-bold text-white hover:bg-blue-600 hover:border-blue-500 transition-all"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white/5 border border-white/10 py-2.5 text-xs font-bold text-white hover:bg-blue-600 transition-all"
                     >
-                      <span>قراءة المقال والدليل الكامل</span>
+                      <span>قراءة المقال الفني الكامل</span>
                       <ArrowLeft className="h-3.5 w-3.5" />
                     </Link>
                   </LiquidCard>
@@ -307,8 +413,8 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
         </div>
       </section>
 
-      {/* ── 4. Dedicated Quick Cost Estimator for this Category ───────── */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+      {/* ── 8. Interactive Cost Estimator ────────────────────────────── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10">
         <div className="mx-auto max-w-4xl">
           <LiquidCard glowColor="sky" className="p-8 text-right">
             <div className="flex items-center gap-3 mb-4">
@@ -356,13 +462,55 @@ export default function CategoryHubClient({ category }: CategoryHubClientProps) 
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-6 py-3 text-xs font-black text-white shadow-lg shadow-emerald-600/30 transition-all hover:scale-105 shrink-0"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-6 py-3 text-xs font-black text-white shadow-lg shrink-0"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span>تأكيد السعر وحجز المعاينة</span>
               </a>
             </div>
           </LiquidCard>
+        </div>
+      </section>
+
+      {/* ── 9. SEO Accordion FAQ Section (الأسئلة الشائعة والمعلومات) ───── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 text-center">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 px-3.5 py-1 text-xs font-bold text-sky-300 mb-2">
+              <HelpCircle className="h-3.5 w-3.5 text-sky-400" />
+              الأسئلة الفنية والأجوبة المعتمدة
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">
+              أسئلة شائعة حول {category.name} في الرياض
+            </h2>
+          </div>
+
+          <div className="space-y-3">
+            {details.seoFaqs.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-white/10 bg-slate-900/80 overflow-hidden text-right transition-all"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    className="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-white hover:text-sky-300 transition-colors"
+                  >
+                    <span>{faq.question}</span>
+                    <span className="text-sky-400 font-mono text-lg">{isOpen ? "−" : "+"}</span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-4 pb-4 text-xs text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>

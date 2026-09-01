@@ -52,6 +52,8 @@ export async function generateMetadata({
   };
 }
 
+import { SERVICE_DETAILS_DATA } from "@/data/serviceDetailsData";
+
 export default async function CategoryHubPage({ params }: CategoryPageProps) {
   const { categorySlug } = await params;
   const category = getServiceCategoryBySlug(categorySlug);
@@ -60,7 +62,9 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  /* ── Structured Data Schema ────────────────────────────────────────────── */
+  const details = SERVICE_DETAILS_DATA[category.id] || SERVICE_DETAILS_DATA["foam-insulation"];
+
+  /* ── Structured Data Schemas ────────────────────────────────────────────── */
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -117,9 +121,35 @@ export default async function CategoryHubPage({ params }: CategoryPageProps) {
     ],
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: details.seoFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.answer,
+      },
+    })),
+  };
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: details.solutionSystem.title,
+    description: details.solutionSystem.description,
+    step: details.solutionSystem.steps.map((st) => ({
+      "@type": "HowToStep",
+      position: st.stepNumber,
+      name: st.title,
+      text: st.desc,
+    })),
+  };
+
   return (
     <>
-      <JsonLd schema={[serviceSchema, breadcrumbSchema]} />
+      <JsonLd schema={[serviceSchema, breadcrumbSchema, faqSchema, howToSchema]} />
       <CategoryHubClient category={category} />
     </>
   );
