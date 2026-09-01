@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   // Verification tags (replace values with real console tokens)
   verification: {
-    google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN",
+    google: "googlee36388655d8798dc",
   },
   // App / PWA
   applicationName: "المعمورة للعوازل",
