@@ -6,6 +6,8 @@ import { BeforeAfterPair, ProjectCategoryId } from "@/types/project";
 import ProjectVisual from "./ProjectVisualFallback";
 import { CheckCircle2, AlertTriangle, ArrowRightLeft } from "lucide-react";
 
+import ProtectedImage from "@/components/ui/ProtectedImage";
+
 interface BeforeAfterViewerProps {
   beforeAfter: BeforeAfterPair;
   categoryId: ProjectCategoryId;
@@ -18,6 +20,11 @@ export default function BeforeAfterViewer({
   projectTitle,
 }: BeforeAfterViewerProps) {
   const [activeTab, setActiveTab] = useState<"after" | "before">("after");
+
+  const currentImg =
+    activeTab === "before"
+      ? beforeAfter.beforeImage
+      : beforeAfter.afterImage;
 
   return (
     <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-6 sm:p-8 backdrop-blur-xl shadow-2xl text-right">
@@ -70,16 +77,30 @@ export default function BeforeAfterViewer({
             transition={{ duration: 0.3 }}
             className="h-full w-full"
           >
-            <ProjectVisual
-              categoryId={categoryId}
-              title={
-                activeTab === "before"
-                  ? beforeAfter.beforeTitle
-                  : beforeAfter.afterTitle
-              }
-              stage={activeTab}
-              className="h-full w-full"
-            />
+            {currentImg ? (
+              <ProtectedImage
+                src={currentImg}
+                alt={
+                  activeTab === "before"
+                    ? beforeAfter.beforeTitle
+                    : beforeAfter.afterTitle
+                }
+                fill
+                className="h-full w-full object-cover"
+                showWatermark={true}
+              />
+            ) : (
+              <ProjectVisual
+                categoryId={categoryId}
+                title={
+                  activeTab === "before"
+                    ? beforeAfter.beforeTitle
+                    : beforeAfter.afterTitle
+                }
+                stage={activeTab}
+                className="h-full w-full"
+              />
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
