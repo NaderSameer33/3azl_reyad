@@ -388,10 +388,10 @@ export default function Header() {
               <a
                 href={`tel:${siteConfig.phone.primary}`}
                 id="header-call-btn"
-                className="hidden md:inline-flex items-center gap-2 rounded-xl border border-white/15 bg-slate-900/80 hover:bg-white/10 backdrop-blur px-4 py-2 text-xs font-bold text-white transition-all duration-200 hover:border-white/30 shadow-md"
+                className="hidden md:inline-flex items-center gap-2 rounded-xl border border-white/15 bg-slate-900/80 hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-600 hover:border-sky-400/80 hover:text-white hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] backdrop-blur px-4 py-2 text-xs font-bold text-slate-200 transition-all duration-300 group/btn"
                 aria-label="اتصال فوري"
               >
-                <Phone className="h-3.5 w-3.5 text-sky-400" aria-hidden="true" />
+                <Phone className="h-3.5 w-3.5 text-sky-400 group-hover/btn:text-white group-hover/btn:scale-110 transition-all duration-300" aria-hidden="true" />
                 <span>اتصال فوري</span>
               </a>
 

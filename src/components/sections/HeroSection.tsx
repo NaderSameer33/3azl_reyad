@@ -172,17 +172,17 @@ export default function HeroSection() {
               variants={itemVariants}
               className="flex flex-wrap items-center gap-2 mb-5 text-[11px] sm:text-xs font-semibold text-slate-300"
             >
-              <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900/80 border border-white/10 px-3 py-1">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                معتمدون لتقارير شركة المياه الوطنية
+              <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-emerald-400/60 hover:bg-emerald-500/20 hover:text-emerald-200 hover:shadow-[0_0_18px_rgba(52,211,153,0.35)] transition-all duration-300 px-3 py-1 cursor-default group/chip">
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 group-hover/chip:scale-110 transition-transform" />
+                <span>معتمدون لتقارير شركة المياه الوطنية</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900/80 border border-white/10 px-3 py-1">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                مطابق لكود البناء السعودي SBC
+              <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-sky-400/60 hover:bg-sky-500/20 hover:text-sky-200 hover:shadow-[0_0_18px_rgba(56,189,248,0.35)] transition-all duration-300 px-3 py-1 cursor-default group/chip">
+                <CheckCircle2 className="h-3.5 w-3.5 text-sky-400 group-hover/chip:scale-110 transition-transform" />
+                <span>مطابق لكود البناء السعودي SBC</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900/80 border border-white/10 px-3 py-1">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                استجابة خلال ساعتين
+              <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-teal-400/60 hover:bg-teal-500/20 hover:text-teal-200 hover:shadow-[0_0_18px_rgba(45,212,191,0.35)] transition-all duration-300 px-3 py-1 cursor-default group/chip">
+                <CheckCircle2 className="h-3.5 w-3.5 text-teal-400 group-hover/chip:scale-110 transition-transform" />
+                <span>استجابة خلال ساعتين</span>
               </span>
             </motion.div>
 
@@ -195,7 +195,7 @@ export default function HeroSection() {
               <a
                 href="#contact"
                 id="hero-book-btn"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 hover:from-blue-500 hover:to-blue-400 px-5 py-3 text-xs sm:text-sm font-black text-white shadow-xl shadow-blue-600/30 transition-all hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 hover:from-sky-400 hover:to-blue-600 hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] px-5 py-3 text-xs sm:text-sm font-black text-white shadow-xl shadow-blue-600/30 transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <CalendarCheck className="h-4 w-4" />
                 <span>احجز معاينة مجانية الآن</span>
@@ -207,7 +207,7 @@ export default function HeroSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-btn"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-5 py-3 text-xs sm:text-sm font-black text-white shadow-xl shadow-emerald-600/25 transition-all hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-400 hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] px-5 py-3 text-xs sm:text-sm font-black text-white shadow-xl shadow-emerald-600/25 transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -221,9 +221,9 @@ export default function HeroSection() {
               <a
                 href={`tel:${siteConfig.phone.primary}`}
                 id="hero-phone-btn"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-slate-900/80 hover:bg-slate-800/90 backdrop-blur-md px-4 py-3 text-xs sm:text-sm font-bold text-white transition-all hover:border-white/30 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-slate-900/80 hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-600 hover:border-sky-400/80 hover:text-white hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] backdrop-blur-md px-4 py-3 text-xs sm:text-sm font-bold text-slate-200 transition-all duration-300 active:scale-95 group/herophone"
               >
-                <Phone className="h-4 w-4 text-sky-400" />
+                <Phone className="h-4 w-4 text-sky-400 group-hover/herophone:text-white group-hover/herophone:scale-110 transition-all duration-300" />
                 <span dir="ltr">{siteConfig.phone.display.primary}</span>
               </a>
             </motion.div>
