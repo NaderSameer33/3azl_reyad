@@ -141,12 +141,15 @@ export default function Header() {
     <>
       <header
         role="banner"
-        className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "border-b border-white/10 bg-slate-950/90 backdrop-blur-xl shadow-2xl shadow-black/50 py-1"
-            : "bg-gradient-to-b from-slate-950/95 via-slate-950/60 to-transparent py-2"
-        }`}
+        className="fixed top-0 right-0 left-0 z-[60]"
       >
+        <div
+          className={`transition-all duration-300 ${
+            scrolled
+              ? "border-b border-white/10 bg-slate-950/95 backdrop-blur-xl shadow-2xl shadow-black/50 py-1"
+              : "bg-gradient-to-b from-slate-950/95 via-slate-950/70 to-slate-950/40 py-2"
+          }`}
+        >
         {/* ── Emergency Ribbon (Top Micro-Bar) ─────────────────── */}
         <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-blue-400/20">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1 text-xs text-white/95 sm:px-6 lg:px-8">
@@ -435,6 +438,7 @@ export default function Header() {
             </div>
           </div>
         </div>
+        </div>
 
         {/* ── Mobile Fullscreen Menu Drawer ────────────────────── */}
         <AnimatePresence>
@@ -448,7 +452,7 @@ export default function Header() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="lg:hidden fixed inset-x-0 top-[96px] bottom-0 z-40 flex flex-col bg-slate-950/95 backdrop-blur-2xl border-t border-white/10 p-6 overflow-y-auto"
+              className="lg:hidden fixed inset-x-0 top-[82px] sm:top-[90px] bottom-0 z-[55] flex flex-col bg-slate-950/98 backdrop-blur-2xl border-t border-white/10 p-5 sm:p-6 overflow-y-auto overscroll-contain pb-32"
             >
               {/* Emergency Banner inside mobile menu */}
               <div className="mb-6 rounded-2xl bg-gradient-to-r from-slate-900 to-blue-950 border border-blue-400/30 p-4 text-right">

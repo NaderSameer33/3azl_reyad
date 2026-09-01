@@ -101,7 +101,7 @@ export default function FloatingContactHub() {
   return (
     <aside
       aria-label="شريط التواصل السريع"
-      className="flex fixed bottom-5 right-3 sm:bottom-8 sm:right-6 z-50 flex-col items-center select-none"
+      className="flex fixed bottom-5 right-3 sm:bottom-8 sm:right-6 z-40 flex-col items-center select-none"
     >
       {/* ── Scroll to Top Button (Above the Pillar) ───────────────── */}
       <AnimatePresence>
