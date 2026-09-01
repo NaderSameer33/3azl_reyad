@@ -48,7 +48,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
   const [hoveredCategorySlug, setHoveredCategorySlug] = useState<string>("foam-insulation");
   const [activeSection, setActive] = useState("/");
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -180,25 +180,25 @@ export default function Header() {
         </div>
 
         {/* ── Main Nav Row ──────────────────────────────────────── */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between gap-4">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between gap-2 sm:gap-4">
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 group shrink-0"
+              className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0"
               aria-label={`${siteConfig.name.short.ar} — الصفحة الرئيسية`}
             >
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform duration-200">
-                <Droplets className="h-5 w-5 text-white" aria-hidden="true" />
+              <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform duration-200 shrink-0">
+                <Droplets className="h-4 w-4 sm:h-5 sm:w-5 text-white" aria-hidden="true" />
               </div>
-              <div className="flex flex-col text-right">
+              <div className="flex flex-col text-right truncate">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-base font-black text-white tracking-tight">{siteConfig.name.short.ar}</span>
+                  <span className="text-sm sm:text-base font-black text-white tracking-tight truncate">{siteConfig.name.short.ar}</span>
                   <span className="rounded-full bg-sky-500/20 border border-sky-400/30 px-1.5 py-0.2 text-[9px] font-bold text-sky-300 hidden sm:inline-block">
                     معتمد
                   </span>
                 </div>
-                <span className="text-[10px] font-medium text-slate-400">
+                <span className="text-[9px] sm:text-[10px] font-medium text-slate-400 hidden xs:block truncate">
                   كشف تسربات • عزل أسطح بالرياض
                 </span>
               </div>
@@ -386,12 +386,12 @@ export default function Header() {
             </nav>
 
             {/* Direct Action CTAs */}
-            <div className="flex items-center gap-2.5 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
               {/* Immediate Call Button */}
               <a
                 href={`tel:${siteConfig.phone.primary}`}
                 id="header-call-btn"
-                className="hidden md:inline-flex items-center gap-2 rounded-xl border border-white/15 bg-slate-900/80 hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-600 hover:border-sky-400/80 hover:text-white hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] backdrop-blur px-4 py-2 text-xs font-bold text-slate-200 transition-all duration-300 group/btn"
+                className="hidden md:inline-flex items-center gap-2 rounded-xl border border-white/15 bg-slate-900/80 hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-600 hover:border-sky-400/80 hover:text-white hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] backdrop-blur px-3.5 py-2 text-xs font-bold text-slate-200 transition-all duration-300 group/btn"
                 aria-label="اتصال فوري"
               >
                 <Phone className="h-3.5 w-3.5 text-sky-400 group-hover/btn:text-white group-hover/btn:scale-110 transition-all duration-300" aria-hidden="true" />
@@ -404,16 +404,16 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="header-inspection-btn"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 px-4 py-2 text-xs font-extrabold text-white shadow-lg shadow-blue-600/30 transition-all duration-200 hover:scale-105"
+                className="inline-flex items-center gap-1.5 sm:gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-extrabold text-white shadow-lg shadow-blue-600/30 transition-all duration-200 hover:scale-105 shrink-0"
               >
-                <CalendarCheck className="h-4 w-4" aria-hidden="true" />
+                <CalendarCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 <span>طلب معاينة</span>
               </a>
 
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle — Always visible on left */}
               <button
                 id="mobile-menu-toggle"
-                className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10"
+                className="lg:hidden flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10"
                 onClick={() => setMenuOpen((v) => !v)}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
