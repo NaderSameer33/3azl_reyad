@@ -30,6 +30,7 @@ export const siteConfig = {
       secondary: "0509876543",
     },
   },
+  email: "info@gulfshield-sa.com",
 
   // ─── WhatsApp ─────────────────────────────────────────────────────────────
   whatsapp: {

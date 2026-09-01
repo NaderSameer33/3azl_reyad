@@ -4,7 +4,7 @@
  */
 
 interface JsonLdProps {
-  schema: Record<string, unknown> | Record<string, unknown>[];
+  schema: unknown;
 }
 
 /**

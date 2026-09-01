@@ -7,7 +7,6 @@ import JsonLd from "@/components/ui/JsonLd";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContactHub from "@/components/ui/FloatingContactHub";
-import MobileBottomBar from "@/components/layout/MobileBottomBar";
 
 // ─── Font ──────────────────────────────────────────────────────────────────────
 const cairo = Cairo({
@@ -69,7 +68,7 @@ export default function RootLayout({
         {/* JSON-LD Structured Data */}
         <JsonLd schema={localBusinessSchema} />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground pb-14 md:pb-0">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         {/* Skip to main content (accessibility) */}
         <a
           href="#main-content"
@@ -86,11 +85,8 @@ export default function RootLayout({
 
         <Footer />
 
-        {/* Multi-channel floating speed-dial (desktop + tablet) */}
+        {/* Floating vertical contact dock (all devices) */}
         <FloatingContactHub />
-
-        {/* Sticky bottom conversion bar (mobile only) */}
-        <MobileBottomBar />
       </body>
     </html>
   );
