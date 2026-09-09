@@ -30,7 +30,7 @@ const categoryFilterTabs = [
   { id: "waterproofing-thermal", label: "عزل مائي وحراري" },
   { id: "leak-detection", label: "كشف التسربات" },
   { id: "tank-insulation", label: "عزل الخزانات" },
-  { id: "pools-bathrooms", label: "المسابح والحمامات" },
+  { id: "pools-bathrooms", label: "ترميم وتجديد وصيانة حمامات" },
 ];
 
 export default function ArticlesHubClient({

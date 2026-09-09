@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const serviceLinks = [
-  { label: "عزل حمامات ومطابخ قبل وبعد البلاط", href: "/services/pools-bathrooms" },
+  { label: "ترميم وتجديد وصيانة حمامات", href: "/services/pools-bathrooms" },
   { label: "عزل رول ممبرين بيتوميني 4 ملم", href: "/services/waterproofing-thermal" },
   { label: "عزل بولي يوريا هيدروليكي عالي المقاومة", href: "/services/waterproofing-thermal" },
   { label: "عزل فوم بولي يوريثان حراري ومائي", href: "/services/foam-insulation" },
