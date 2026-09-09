@@ -257,6 +257,20 @@ export default function Footer() {
               </a>
 
               <div className="flex items-start gap-3 rounded-xl bg-white/5 p-2.5 border border-white/5 text-white/70">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-teal-500/20 text-teal-400">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-white/50 mb-0.5">العنوان الرسمي</p>
+                  <address className="not-italic text-xs font-medium text-white/80">
+                    {siteConfig.business.address.streetAddress}،{" "}
+                    {siteConfig.business.address.addressLocality}،{" "}
+                    الرمز البريدي {siteConfig.business.address.postalCode}
+                  </address>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 rounded-xl bg-white/5 p-2.5 border border-white/5 text-white/70">
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-500/20 text-gold-400">
                   <Clock className="h-4 w-4" />
                 </div>
@@ -275,10 +289,20 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50 text-center sm:text-right">
             <p>© {year} {siteConfig.name.ar}. جميع الحقوق محفوظة.</p>
-            <p className="flex items-center gap-1.5 text-white/40">
-              <CheckCircle2 className="h-3.5 w-3.5 text-wa-green-400" />
-              <span>خدمة هندسية معتمدة لكافة أحياء الرياض</span>
-            </p>
+            {/* Legal links — required by Google Ads policy */}
+            <nav aria-label="روابط قانونية" className="flex items-center gap-4 flex-wrap justify-center">
+              <Link href="/privacy-policy" className="hover:text-white/80 transition-colors">
+                سياسة الخصوصية
+              </Link>
+              <span className="text-white/20">|</span>
+              <Link href="/terms" className="hover:text-white/80 transition-colors">
+                الشروط والأحكام
+              </Link>
+              <span className="text-white/20">|</span>
+              <Link href="/contact" className="hover:text-white/80 transition-colors">
+                اتصل بنا
+              </Link>
+            </nav>
           </div>
         </div>
       </div>

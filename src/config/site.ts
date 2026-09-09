@@ -36,9 +36,10 @@ export const siteConfig = {
   whatsapp: {
     number: "966555636196", // without leading +
     get url() {
-      return "https://api.whatsapp.com/send/?phone=966555636196&text&type=phone_number&app_absent=0";
+      return "https://wa.me/966555636196";
     },
   },
+
 
   // ─── Social Media ─────────────────────────────────────────────────────────
   social: {

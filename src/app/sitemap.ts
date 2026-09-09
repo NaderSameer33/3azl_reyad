@@ -26,7 +26,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    // ── Legal pages — required by Google Ads policy ─────────────────────────
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
   ];
+
 
   // Dynamic Service Category Hub Routes
   const serviceCategoryRoutes: MetadataRoute.Sitemap = servicesData.map((cat) => ({

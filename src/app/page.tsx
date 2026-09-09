@@ -153,10 +153,39 @@ const whyUs = [
 
 export default function HomePage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    service: "",
+    district: "",
+  });
   const projects = getAllProjects().slice(0, 3);
 
+  // ─── Form submit: opens WhatsApp with pre-filled message ──────────────────
+  // This is fully functional & compliant — the lead is delivered via WhatsApp.
+  // No backend/CORS needed, no fake submission.
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const serviceLabels: Record<string, string> = {
+      foam: "عزل فوم بولي يوريثان",
+      waterproofing: "عزل مائي للأسطح",
+      leak: "كشف تسربات المياه بدون تكسير",
+      tank: "عزل وترميم خزانات المياه",
+      pool: "عزل مسابح وحمامات",
+    };
+
+    const serviceLabel = serviceLabels[formData.service] || formData.service;
+    const message = [
+      "مرحباً، أريد حجز موعد معاينة مجانية من موقع المعمورة.",
+      `الاسم: ${formData.name}`,
+      `رقم الجوال: ${formData.phone}`,
+      `الخدمة المطلوبة: ${serviceLabel}`,
+      `الحي: ${formData.district}`,
+    ].join("\n");
+
+    const waUrl = `https://wa.me/966555636196?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
     setFormSubmitted(true);
   };
 
@@ -449,6 +478,8 @@ export default function HomePage() {
                           type="text"
                           required
                           placeholder="أدخل اسمك"
+                          value={formData.name}
+                          onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
                           className="w-full rounded-xl border border-white/15 bg-slate-950 px-4 py-3 text-xs text-white placeholder-white/40 focus:border-blue-400 focus:outline-none"
                         />
                       </div>
@@ -459,6 +490,8 @@ export default function HomePage() {
                           required
                           dir="ltr"
                           placeholder="05XXXXXXXX"
+                          value={formData.phone}
+                          onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
                           className="w-full rounded-xl border border-white/15 bg-slate-950 px-4 py-3 text-xs text-white placeholder-white/40 focus:border-blue-400 focus:outline-none text-right"
                         />
                       </div>
@@ -471,7 +504,8 @@ export default function HomePage() {
                           id="service-select"
                           aria-label="اختر نوع الخدمة"
                           required
-                          defaultValue=""
+                          value={formData.service}
+                          onChange={(e) => setFormData((p) => ({ ...p, service: e.target.value }))}
                           className="w-full rounded-xl border border-white/15 bg-slate-950 px-4 py-3 text-xs text-white focus:border-blue-400 focus:outline-none"
                         >
                           <option value="" disabled>اختر نوع الخدمة</option>
@@ -488,6 +522,8 @@ export default function HomePage() {
                           type="text"
                           required
                           placeholder="مثال: الملقا، النرجس، الياسمين..."
+                          value={formData.district}
+                          onChange={(e) => setFormData((p) => ({ ...p, district: e.target.value }))}
                           className="w-full rounded-xl border border-white/15 bg-slate-950 px-4 py-3 text-xs text-white placeholder-white/40 focus:border-blue-400 focus:outline-none"
                         />
                       </div>

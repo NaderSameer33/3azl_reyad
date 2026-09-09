@@ -504,9 +504,7 @@ export const servicesData: ServiceCategory[] = [
     ],
   },
 
-  /* ══════════════════════════════════════════════════════════════════════════
-     5. POOLS & BATHROOMS (ترميم وتجديد وصيانة حمامات)
-  ══════════════════════════════════════════ */
+ 
   {
     id: "pools-bathrooms",
     slug: "pools-bathrooms",

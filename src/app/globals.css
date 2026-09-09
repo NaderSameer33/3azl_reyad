@@ -356,8 +356,5 @@ img, video {
   user-select: none !important;
 }
 
-@media print {
-  body {
-    display: none !important;
-  }
-}
+/* NOTE: @media print { display:none } was removed — it triggered Google Ads cloaking detection.
+   To discourage printing, use CSS watermarks or overlay text instead. */

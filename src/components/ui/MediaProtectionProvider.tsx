@@ -28,10 +28,8 @@ export default function MediaProtectionProvider({
         e.preventDefault();
         triggerNotice("محتوى وحقوق الصور والفيديوهات محفوطة لشركة المعمورة");
       }
-      // Ctrl+U
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "u") {
-        e.preventDefault();
-      }
+      // NOTE: Ctrl+U (View Source) prevention was removed — it triggers Google Ads
+      // "Circumventing Systems" policy. Source code is publicly readable by design.
       // Ctrl+P
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "p") {
         e.preventDefault();
