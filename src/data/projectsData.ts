@@ -768,6 +768,16 @@ export const PROJECTS_DATABASE: Project[] = [
         caption: "عزل أرضية وجدران المطابخ والحمامات وشريط الوترستوب قبل التبليط",
         stage: "after",
       },
+      {
+        url: "/images/media/img-32.jpg",
+        caption: "أحد حمامات القصر بعد اكتمال أعمال الترميم والتجديد بالرخام والتجهيزات الفاخرة",
+        stage: "after",
+      },
+      {
+        url: "/images/media/img-31.jpg",
+        caption: "دورة مياه الماستر بعد التجديد والتشطيب العصري مع بانيو ودش مطري",
+        stage: "after",
+      },
     ],
     beforeAfter: {
       beforeImage: "/images/media/img-22.jpg",
