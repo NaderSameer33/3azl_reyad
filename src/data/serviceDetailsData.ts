@@ -205,17 +205,19 @@ export const SERVICE_DETAILS_DATA: Record<string, CategoryDetailsContent> = {
 
   "pools-bathrooms": {
     categoryId: "pools-bathrooms",
-    heroImages: ["/images/media/img-26.jpg", "/images/media/img-27.jpg", "/images/media/img-28.jpg"],
+    heroImages: ["/images/media/img-32.jpg", "/images/media/img-26.jpg", "/images/media/img-29.jpg"],
     galleryImages: [
-      { url: "/images/media/img-26.jpg", caption: "حمام فاخر مجدد بالكامل مع بانيو حر وأدوات صحية عصرية", stage: "after" },
-      { url: "/images/media/img-27.jpg", caption: "حمام بتشطيبات رمادية فاخرة مع دش زجاجي وإضاءة LED", stage: "after" },
-      { url: "/images/media/img-28.jpg", caption: "حمام بتصميم كلاسيكي مع بانيو ولوازم ذهبية فاخرة", stage: "after" },
-      { url: "/images/media/img-29.jpg", caption: "حمام جديد بتشطيبات بورسلان رمادي وإضاءة خطية عصرية", stage: "after" },
-      { url: "/images/media/img-30.jpg", caption: "قبل التبليط - تطبيق العازل الإسمنتي البوليمري المرن على الأرضية", stage: "before" },
+      { url: "/images/media/img-32.jpg", caption: "حمام مودرن فاخر مجدد بالكامل مع رخام كلكتا ولوازم صحية ذهبية", stage: "after" },
+      { url: "/images/media/img-26.jpg", caption: "ترميم وتجديد مطبخ عصري بالكامل مع كاونترات كوارتز وخزائن حديثة", stage: "after" },
+      { url: "/images/media/img-31.jpg", caption: "حمام أنيق بعد التجديد مع بانيو مستقل ودش مطري", stage: "after" },
+      { url: "/images/media/img-27.jpg", caption: "حمام بتشطيبات عصرية مع بانيو حر ومغسلة معلقة", stage: "after" },
+      { url: "/images/media/img-28.jpg", caption: "دش زجاجي مودرن بتشطيبات بورسلان رمادي وأطقم معلقة", stage: "after" },
+      { url: "/images/media/img-29.jpg", caption: "تصميم كلاسيكي فخم مع إضاءات ليد جدارية وبانيو أنيق", stage: "after" },
+      { url: "/images/media/img-30.jpg", caption: "تأسيس وتمديد سباكة وكهرباء وبورسلان مطبخ حديث بأعلى المعايير", stage: "after" },
     ],
     video: {
       src: "/videos/video-05.mp4",
-      poster: "/images/media/img-26.jpg",
+      poster: "/images/media/img-32.jpg",
       title: "أعمال ترميم وتجديد حمامات بالرياض - شركة المعمورة",
       description: "شاهد مشاريع ترميم وتجديد الحمامات بالرياض مع تطبيق العزل المائي الإسمنتي البوليمري المرن وتشطيبات فاخرة.",
     },
