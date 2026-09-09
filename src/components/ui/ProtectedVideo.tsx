@@ -71,7 +71,7 @@ export default function ProtectedVideo({
       {showWatermark && (
         <div className="absolute top-3 right-3 z-30 pointer-events-none flex items-center gap-1.5 rounded-full bg-slate-950/85 border border-sky-400/30 px-3 py-1 text-xs font-bold text-white backdrop-blur-md shadow-xl select-none">
           <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-          <span>شركة المعمورة للمقاولات العامة للعوازل • 0539441259</span>
+          <span>شركة المعمورة للمقاولات العامة للعوازل • 0555636196</span>
         </div>
       )}
 

@@ -23,20 +23,20 @@ export const siteConfig = {
 
   // ─── Contact ──────────────────────────────────────────────────────────────
   phone: {
-    primary: "+966539441259",
-    secondary: "+966539441259",
+    primary: "+966555636196",
+    secondary: "+966555636196",
     display: {
-      primary: "0539441259",
-      secondary: "0539441259",
+      primary: "0555636196",
+      secondary: "0555636196",
     },
   },
   email: "info@almamoura-sa.com",
 
   // ─── WhatsApp ─────────────────────────────────────────────────────────────
   whatsapp: {
-    number: "966539441259", // without leading +
+    number: "966555636196", // without leading +
     get url() {
-      return "https://api.whatsapp.com/send/?phone=966539441259&text&type=phone_number&app_absent=0";
+      return "https://api.whatsapp.com/send/?phone=966555636196&text&type=phone_number&app_absent=0";
     },
   },
 

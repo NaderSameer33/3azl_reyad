@@ -68,7 +68,7 @@ export default function ProtectedImage({
       {showWatermark && (
         <div className="absolute bottom-2.5 right-2.5 z-20 pointer-events-none flex items-center gap-1.5 rounded-lg bg-slate-950/85 border border-white/20 px-2.5 py-1 text-[10px] font-bold text-white/90 backdrop-blur-md shadow-lg select-none">
           <ShieldCheck className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-          <span className="truncate">شركة المعمورة • 0539441259</span>
+          <span className="truncate">شركة المعمورة • 0555636196</span>
         </div>
       )}
     </div>
