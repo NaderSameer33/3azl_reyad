@@ -21,27 +21,12 @@ export default function MediaProtectionProvider({
   };
 
   useEffect(() => {
-    // 1. Prevent keyboard save & dev shortcuts
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Ctrl+S / Cmd+S
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
-        e.preventDefault();
-        triggerNotice("محتوى وحقوق الصور والفيديوهات محفوطة لشركة المعمورة");
-      }
-      // NOTE: Ctrl+U (View Source) prevention was removed — it triggers Google Ads
-      // "Circumventing Systems" policy. Source code is publicly readable by design.
-      // Ctrl+P
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "p") {
-        e.preventDefault();
-        triggerNotice("طباعة المحتوى غير متاحة لحماية حقوق الصور والأفلام");
-      }
-      // PrintScreen key
-      if (e.key === "PrintScreen") {
-        triggerNotice("علامة حماية حقوق الصور والفيديوهات - شركة المعمورة");
-      }
-    };
+    // NOTE: Keyboard shortcuts (Ctrl+S, Ctrl+P, Ctrl+U, F12) are intentionally
+    // NOT blocked here. Blocking them violates Google Ads "Circumventing Systems"
+    // policy because Googlebot simulates these actions during landing page review.
+    // Source code and printing must remain publicly accessible per policy.
 
-    // 2. Global contextmenu handler on image/video elements
+    // 1. Contextmenu protection — only on media elements (legitimate UX)
     const handleContextMenu = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
@@ -55,7 +40,7 @@ export default function MediaProtectionProvider({
       }
     };
 
-    // 3. Prevent dragstart globally on images
+    // 2. Prevent drag-and-drop download of images and videos
     const handleDragStart = (e: DragEvent) => {
       const target = e.target as HTMLElement;
       if (target && (target.tagName === "IMG" || target.tagName === "VIDEO")) {
@@ -63,12 +48,10 @@ export default function MediaProtectionProvider({
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
     document.addEventListener("contextmenu", handleContextMenu);
     document.addEventListener("dragstart", handleDragStart);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("contextmenu", handleContextMenu);
       document.removeEventListener("dragstart", handleDragStart);
     };

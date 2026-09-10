@@ -2,34 +2,35 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // ─── Security HTTP Headers ─────────────────────────────────────────────────
-  // These prevent "Compromised Site" flags from Google Safe Browsing and
-  // satisfy Google Ads landing page security policy requirements.
+  // Required by Google Ads landing page policy (Compromised Site check).
+  // DO NOT add any header that blocks Googlebot or hides page content.
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          // Prevent clickjacking
+          // Prevent clickjacking — SAMEORIGIN is safe for Google Ads
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
           },
-          // Prevent MIME-type sniffing (malware vector)
+          // Prevent MIME-type sniffing (blocks malware injection vectors)
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
           },
-          // Control referrer information (privacy + policy compliance)
+          // Control referrer information — required for Google Ads tracking
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
-          // Enable XSS protection in older browsers
+          // XSS protection (legacy browsers) — signals clean site to Safe Browsing
           {
             key: "X-XSS-Protection",
             value: "1; mode=block",
           },
           // Permissions Policy — restrict dangerous browser APIs
+          // NOTE: Do NOT block camera/mic at the iframe level if using Google Maps embed
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), payment=()",
@@ -40,15 +41,17 @@ const nextConfig: NextConfig = {
   },
 
   // ─── Canonical Redirect: non-www → www ────────────────────────────────────
-  // Prevents Google from seeing two versions of the site (cloaking signal).
-  // Vercel also has a redirect config in vercel.json — this covers self-hosted.
+  // This is a standard 301 redirect — NOT cloaking. It ensures Googlebot and
+  // Google Ads both see www.elmamoura.com as the canonical domain.
+  // IMPORTANT: The final URL in Google Ads MUST be https://www.elmamoura.com
+  // (with www) to match the landing page after this redirect.
   async redirects() {
     return [
       {
-        source: "/(.*)",
+        source: "/:path*",
         has: [{ type: "host", value: "elmamoura.com" }],
-        destination: "https://www.elmamoura.com/$1",
-        permanent: true, // 301 redirect
+        destination: "https://www.elmamoura.com/:path*",
+        permanent: true, // 301 — signals canonical to Google, not deceptive
       },
     ];
   },
